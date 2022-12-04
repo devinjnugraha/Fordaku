@@ -76,9 +76,10 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBeranda"
             android:layout_width="match_parent"
             android:layout_height="541dp"
-            tools:listitem="@layout/recyclerview_layout2"/>
+            tools:listitem="@layout/recyclerview_layout2" />
 
     </LinearLayout>
 

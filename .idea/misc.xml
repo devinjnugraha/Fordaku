@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/fragment_beranda.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/fragment_forda.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/fragment_profil.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/menu/bottom_nav.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/drawable/ic_burger.xml" value="0.1825" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/drawable/ic_home.xml" value="0.1825" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1825" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/drawable/ic_profile.xml" value="0.1825" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/activity_main.xml" value="0.14447463768115942" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/forda_layout.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/fragment_beranda.xml" value="0.264" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/fragment_forda.xml" value="0.4" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/fragment_profil.xml" value="0.264" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/recyclerview_layout.xml" value="0.2" />
+        <entry key="..\:/Users/devin/AndroidStudioProjects/Fordaku/app/src/main/res/layout/recyclerview_layout2.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -16,12 +22,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.2" />
-      </ProjectState>
-    </option>
   </component>
 </project>
