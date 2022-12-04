@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".LoginFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_margin="32dp"
         android:orientation="vertical">
 
         <!--        <androidx.appcompat.widget.Toolbar-->
@@ -59,15 +58,15 @@
         <!--        </androidx.appcompat.widget.Toolbar>-->
 
         <ImageView
+            android:src="@drawable/fordaku"
             android:layout_width="match_parent"
             android:layout_height="24dp"
-            android:layout_marginTop="96dp"
-            app:srcCompat="@drawable/fordaku" />
+            android:layout_marginTop="64dp" />
 
         <ImageView
+            android:src="@drawable/logo"
             android:layout_width="match_parent"
-            android:layout_height="256dp"
-            app:srcCompat="@drawable/logo" />
+            android:layout_height="256dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -100,36 +99,37 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/loginButton"
+            android:id="@+id/profilButton"
+            app:cornerRadius="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
             android:text="Login"
             android:textAllCaps="false"
-            android:textSize="18sp"
-            app:cornerRadius="30dp"
-            android:layout_marginBottom="16dp"/>
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:gravity="center">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Belum punya akun?" />
+                android:text="Belum punya akun?"
+                android:textAlignment="center" />
+
             <TextView
                 android:id="@+id/registerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Register"
                 android:layout_marginStart="4sp"
                 android:linksClickable="true"
-                android:textColor="?attr/colorPrimary"/>
+                android:text="Register"
+                android:textAlignment="center"
+                android:textColor="?attr/colorPrimary" />
         </LinearLayout>
 
     </LinearLayout>
