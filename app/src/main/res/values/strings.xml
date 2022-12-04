@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Fordaku</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textfield_label">Apa yang anda pikirkan?</string>
+    <string name="textfield_label2">Search...</string>
 </resources>
