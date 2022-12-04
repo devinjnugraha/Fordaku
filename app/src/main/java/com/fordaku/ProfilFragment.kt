@@ -1,5 +1,6 @@
 package com.fordaku
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -63,7 +64,7 @@ class ProfilFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<MaterialButton>(R.id.profilButton).setOnClickListener {
-            // TODO("Redirect to Profile Activity")
+            startActivity(Intent(activity, ProfileActivity::class.java))
         }
     }
 }
