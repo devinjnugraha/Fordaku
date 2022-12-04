@@ -27,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
                 android:text="Selamat Pagi"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="#000000"
@@ -45,20 +46,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1sp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="9dp"
+                android:layout_marginBottom="2dp"
                 android:background="#22717171"
                 android:foregroundTint="#000000"
                 android:visibility="visible" />
 
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/imageButton3"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#00FFFFFF"
-            android:contentDescription="clikbutton"
-            app:srcCompat="@drawable/right" />
+            android:hint="@string/textfield_label"
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:drawableEnd="@drawable/ic_baseline_create_24"
+                android:drawablePadding="12dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/background_search"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
             android:id="@+id/imageView2"
@@ -70,9 +81,10 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:text="Karyoto ternyata adalah anggota FBR!!"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="Kariyoto dan Heru ternyata adalah anggota FBR!!"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#000000" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -88,6 +100,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
         app:layout_anchor="@+id/linearLayout"
         app:layout_anchorGravity="end|top"
         app:srcCompat="@drawable/logo_fordaku" />

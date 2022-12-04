@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Fordaku</string>
+    <string name="textfield_label">Apa yang anda pikirkan?</string>
+    <string name="textfield_label2">Search</string>
 </resources>
