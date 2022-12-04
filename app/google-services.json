@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "317415019626",
+    "project_id": "fordaku-f70c0",
+    "storage_bucket": "fordaku-f70c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317415019626:android:0a4922b25b3bae4b5ae613",
+        "android_client_info": {
+          "package_name": "com.fordaku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317415019626-kar4gkb1a508o849ih60c7cmosbd6vk5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL1ZoVrtCiEnVxpe0JSGS644kY3HUoEBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317415019626-kar4gkb1a508o849ih60c7cmosbd6vk5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
