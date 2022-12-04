@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android/Fordaku/app/src/main/res/drawable/ic_location.xml" value="0.1785" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/drawable/ic_phone.xml" value="0.1785" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/layout/fragment_register_1.xml" value="0.22" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/layout/fragment_register_2.xml" value="0.22" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/layout/fragment_register_3.xml" value="0.22" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/layout/fragment_register_4.xml" value="0.3333333333333333" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/layout/fragment_register_5.xml" value="0.22" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/layout/profil_guest.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/layout/register_forda.xml" value="0.22" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2" />
+      </ProjectState>
+    </option>
   </component>
 </project>
