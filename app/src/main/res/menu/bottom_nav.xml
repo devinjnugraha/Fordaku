@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Beranda"
+        android:id="@+id/beranda"
+        android:icon="@drawable/ic_home"
+        />
+    <item android:title="Forda"
+        android:id="@+id/forda"
+        android:icon="@drawable/ic_burger"
+        />
+    <item android:title="Profil"
+        android:id="@+id/profil"
+        android:icon="@drawable/ic_profile"
+        />
+
+</menu>
