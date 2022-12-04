@@ -57,7 +57,7 @@
                 android:layout_marginBottom="9dp"
                 >
                 <ImageButton
-                    android:id="@+id/buttonCreatePost"
+                    android:id="@+id/buttonShowCreatePost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#00FFFFFF"
