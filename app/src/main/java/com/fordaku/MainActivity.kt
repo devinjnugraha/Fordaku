@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.beranda -> replaceFragment(BerandaFragment())
                 R.id.forda -> replaceFragment(FordaFragment())
-                R.id.profil -> replaceFragment(ProfilFragment())
+                R.id.profil -> replaceFragment(Register4())
                 else -> {
                     println("ERROR Page not found.")
                 }

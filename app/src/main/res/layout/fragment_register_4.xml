@@ -1,94 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="0dp"
-    tools:context=".Register4">
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="32dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="32dp"
+    android:fillViewport="true"
+    tools:context=".Register2">
 
-    <TextView
-        android:id="@+id/textView9"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginRight="15dp"
-        android:text="Siapkan informasi akunmu"
-        android:textColor="#090A0A"
-        android:textSize="18dp" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="76dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="330dp"
-        android:layout_marginTop="25dp"
-        android:background="#00FFFFFF"
-        android:text="Skip"
-        android:textAllCaps="false"
-        android:textColor="#979C9E"
-        android:textSize="18dp" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="120dp"
-        android:src="@drawable/ic_location" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="200dp"
-        android:src="@drawable/ic_location" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="347dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginRight="15dp">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Daerah Asal"
-            tools:ignore="TouchTargetSizeCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Berikan sedikit deskripsi tentang Forum Daerah kamu."
+            android:textColor="#090A0A"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="346dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="194dp"
-        android:layout_marginRight="15dp">
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Deskripsi"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView6">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="351dp"
-            android:layout_height="match_parent"
-            android:hint="Alamat Sekretariat" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/descriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine" />
 
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="277dp"
-        android:ems="10"
-        android:hint="Nomor Telepon"
-        android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="285dp"
-        android:src="@drawable/ic_phone" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="Selesai"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-</FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
