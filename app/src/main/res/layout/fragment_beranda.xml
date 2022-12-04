@@ -23,7 +23,7 @@
         android:id="@+id/dateTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Senin, 1 desember 2022"
+        android:text="Senin, 5 Desember 2022"
         android:textColor="#6A6868"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/titleTextView"
