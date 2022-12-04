@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:gravity="center"
-                    android:text="Login"
+                    android:text="Register"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -61,16 +61,57 @@
             android:layout_height="match_parent"
             android:layout_margin="32dp"
             android:orientation="vertical">
-            <ImageView
-                android:src="@drawable/fordaku"
-                android:layout_width="match_parent"
-                android:layout_height="24dp"
-                android:layout_marginTop="64dp" />
 
             <ImageView
-                android:src="@drawable/logo"
                 android:layout_width="match_parent"
-                android:layout_height="256dp" />
+                android:layout_height="24dp"
+                android:layout_marginBottom="32dp"
+                android:src="@drawable/fordaku" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Nama Forum Daerah">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Lokasi">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/locationEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Deskripsi Singkat Forda">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/descriptionEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -102,39 +143,32 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="48dp"
+                android:hint="Konfirmasi Password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordConfirmationEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/loginButton"
-                app:cornerRadius="30dp"
+                android:id="@+id/registerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
-                android:text="Login"
+                android:text="Register"
                 android:textAllCaps="false"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Belum punya akun?"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/registerTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4sp"
-                    android:linksClickable="true"
-                    android:text="Register"
-                    android:textAlignment="center"
-                    android:textColor="?attr/colorPrimary" />
-        </LinearLayout>
+                android:textSize="18sp"
+                app:cornerRadius="30dp" />
         </LinearLayout>
 
     </LinearLayout>

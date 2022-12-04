@@ -64,6 +64,10 @@ class ProfileGuestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        view.findViewById<MaterialButton>(R.id.registerButton).setOnClickListener {
+            startActivity(Intent(activity, RegisterActivity::class.java))
+        }
+
         view.findViewById<TextView>(R.id.loginTextView).setOnClickListener {
             startActivity(Intent(activity, LoginActivity::class.java))
         }
