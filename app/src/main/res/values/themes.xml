@@ -16,4 +16,10 @@
         <item name="fontFamily">@font/inter</item>
         <item name="android:textColor">#ff000000</item>
     </style>
+
+    <!-- This is for Splash Screen. -->
+    <style name="Theme.Fordaku.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>
