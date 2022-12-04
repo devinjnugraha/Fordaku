@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/Android/Fordaku/app/src/main/res/drawable/ic_location.xml" value="0.1785" />
         <entry key="..\:/Android/Fordaku/app/src/main/res/drawable/ic_phone.xml" value="0.1785" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/layout/activity_main.xml" value="0.12228260869565218" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/layout/fragment_profil.xml" value="0.22" />
+        <entry key="..\:/Android/Fordaku/app/src/main/res/layout/fragment_register.xml" value="0.16666666666666666" />
         <entry key="..\:/Android/Fordaku/app/src/main/res/layout/fragment_register_1.xml" value="0.22" />
         <entry key="..\:/Android/Fordaku/app/src/main/res/layout/fragment_register_2.xml" value="0.22" />
         <entry key="..\:/Android/Fordaku/app/src/main/res/layout/fragment_register_3.xml" value="0.22" />
