@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.imageview.ShapeableImageView
 
@@ -23,6 +25,10 @@ class ProfilFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var adapter: ProfilePostAdapter
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var posts: ArrayList<Post>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,5 +72,20 @@ class ProfilFragment : Fragment() {
         view.findViewById<MaterialButton>(R.id.profilButton).setOnClickListener {
             startActivity(Intent(activity, ProfileActivity::class.java))
         }
+        dataInitialize()
+        val layoutManager = LinearLayoutManager(context)
+        adapter = ProfilePostAdapter(posts)
+        recyclerView = view.findViewById(R.id.rvProfil)
+
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
+        recyclerView.setHasFixedSize(true)
+    }
+
+    private fun dataInitialize() {
+        posts = arrayListOf<Post>()
+        posts.add(Post("Jombang Menjadi Kota yang Paling Berdesa", "", "", "05/12/2022 19:30", "Jombang Merdeka"))
+        posts.add(Post("Pantai Pulau Merah Semakin Ramai Pengunjung!", "", "", "03/12/2022 20:30", "Banyuwangi Maju"))
+        posts.add(Post("Etika Profesi Malang Semakin Bobrok!", "", "", "05/12/2022 19:30", "Forum Malang Raya"))
     }
 }
