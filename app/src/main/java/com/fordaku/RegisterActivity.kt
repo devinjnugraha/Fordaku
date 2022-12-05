@@ -90,7 +90,7 @@ class RegisterActivity : AppCompatActivity() {
                                     "strDescription" to description,
                                     "strEmail" to email,
                                     "intCreatedAt" to System.currentTimeMillis() / 1000,
-                                    "userId" to
+                                    "userId" to (user.uid)
                                 )
                                 db.collection("fordas")
                                     .add(forda)
