@@ -7,82 +7,53 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.fordaku.bind.FordaAdapter
 import com.fordaku.model.Forda
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FordaFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FordaFragment : Fragment() {
-    // TODO: Add profile photo to Forda data class and RecyclerView
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var mAdapter: FirestoreRecyclerAdapter<Forda, FordaAdapter.FordaViewHolder>
+    private val mFirestore = FirebaseFirestore.getInstance()
+    private val mPostsCollection = mFirestore.collection("fordas")
+    private val mQuery = mPostsCollection.orderBy("intCreatedAt", Query.Direction.ASCENDING)
 
-    private lateinit var adapter: FordaAdapter
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var fordas: ArrayList<Forda>
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_forda, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FordaFragment.
-         */
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FordaFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dataInitialize()
-        val layoutManager = LinearLayoutManager(context)
-        adapter = FordaAdapter(fordas)
-        recyclerView = view.findViewById(R.id.rvForda)
 
-        recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = adapter
-        recyclerView.setHasFixedSize(true)
+        val rv = view.findViewById<RecyclerView>(R.id.rvForda)
+        rv.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(activity)
+        }
+
+        val options = FirestoreRecyclerOptions.Builder<Forda>()
+            .setQuery(mQuery, Forda::class.java)
+            .build()
+
+        mAdapter = FordaAdapter(requireActivity(), mPostsCollection, options)
+        mAdapter.notifyDataSetChanged()
+        rv.adapter = mAdapter
     }
 
-    // Check RecyclerView with dummy data -devin
-    private fun dataInitialize() {
-        // TODO: Integrate with database and add profile photo to FORDA data class and RecyclerView
-        fordas = arrayListOf<Forda>()
+    override fun onStart() {
+        super.onStart()
+        mAdapter.startListening()
+    }
 
-        fordas.add(Forda("Forda Malang", "Kota Malang, Jawa Timur"))
-        fordas.add(Forda("Forda Surabaya", "Kota Surabaya, Jawa Timur"))
-        fordas.add(Forda("Forda Jakarta", "Kota Jakarta Selatan, DKI JAKARTA"))
-        fordas.add(Forda("Jombang Merdeka", "Lawan Penjajah Jombang!"))
+    override fun onStop() {
+        super.onStop()
+        mAdapter.stopListening()
     }
 }
