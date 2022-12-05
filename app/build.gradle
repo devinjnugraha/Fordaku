@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.android.extensions'
     id 'com.google.gms.google-services'
 }
 
@@ -53,6 +54,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
     implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    implementation 'com.firebaseui:firebase-ui-firestore:8.0.2'
 //    implementation platform('com.google.firebase:firebase-bom:31.1.10')
 //    implementation 'com.google.firebase:firebase-crashlytics-ktx'
 //    implementation 'com.google.firebase:firebase-analytics-ktx'

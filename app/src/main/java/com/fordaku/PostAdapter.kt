@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class PostAdapter(private val posts: ArrayList<Post>) :
+class PostAdapter(private val posts: ArrayList<Posts>) :
     RecyclerView.Adapter<PostAdapter.ViewHolder>() {
     /**
      * Provide a reference to the type of views that you are using
@@ -37,9 +37,9 @@ class PostAdapter(private val posts: ArrayList<Post>) :
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         val currentItem = posts[position]
-        holder.tvPostTitle.text = currentItem.title
+        holder.tvPostTitle.text = currentItem.strTitle
         holder.tvPostDate.text = "Date"
-        holder.tvPostFordaName.text = currentItem.fordaId
+        holder.tvPostFordaName.text = "Acr"
     }
 
     override fun getItemCount() = posts.size
