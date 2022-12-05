@@ -79,14 +79,14 @@ class BerandaFragment : Fragment() {
         // TODO: Integrate with database and add profile photo to FORDA data class and RecyclerView
         posts = arrayListOf<Post>()
 
-        posts.add(Post("Jombang Menjadi Kota yang Paling Berdesa", "", "", "05/12/2022 19:30", "Jombang Merdeka"))
-        posts.add(Post("Pantai Pulau Merah Semakin Ramai Pengunjung!", "", "", "03/12/2022 20:30", "Banyuwangi Maju"))
-        posts.add(Post("Etika Profesi Malang Semakin Bobrok!", "", "", "05/12/2022 19:30", "Forum Malang Raya"))
-        posts.add(Post("Tanah Bumbu Membumbu Buta di Tanah yang Berbumbu Sangat Banyak", "", "", "05/12/2022 21:30", "Warga Banua Berbumbu Raya"))
-        posts.add(Post("Etika Profesi Malang Semakin Bobrok!", "", "", "05/12/2022 19:30", "Forum Malang Raya"))
-        posts.add(Post("Pantai Pulau Merah Semakin Ramai Pengunjung!", "", "", "03/12/2022 20:30", "Banyuwangi Maju"))
-        posts.add(Post("Jombang Menjadi Kota yang Paling Berdesa", "", "", "05/12/2022 19:30", "Jombang Merdeka"))
-        posts.add(Post("Etika Profesi Malang Semakin Bobrok!", "", "", "05/12/2022 19:30", "Forum Malang Raya"))
+        posts.add(Post("Jombang Menjadi Kota yang Paling Berdesa", "","Jombang Merdeka"))
+        posts.add(Post("Pantai Pulau Merah Semakin Ramai Pengunjung!", "","Banyuwangi Maju"))
+        posts.add(Post("Etika Profesi Malang Semakin Bobrok!", "", "Forum Malang Raya"))
+        posts.add(Post("Tanah Bumbu Membumbu Buta di Tanah yang Berbumbu Sangat Banyak", "", "Warga Banua Berbumbu Raya"))
+        posts.add(Post("Etika Profesi Malang Semakin Bobrok!", "", "Forum Malang Raya"))
+        posts.add(Post("Pantai Pulau Merah Semakin Ramai Pengunjung!", "", "Banyuwangi Maju"))
+        posts.add(Post("Jombang Menjadi Kota yang Paling Berdesa", "", "Jombang Merdeka"))
+        posts.add(Post("Etika Profesi Malang Semakin Bobrok!", "", "Forum Malang Raya"))
     }
 
 }

@@ -1,13 +1,20 @@
 package com.fordaku
 
+import FirebaseViewModel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.activity.viewModels
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
+    private val firebaseViewModel: FirebaseViewModel by viewModels()
     private lateinit var nameEditText: TextInputEditText
     private lateinit var locationEditText: TextInputEditText
     private lateinit var descriptionEditText: TextInputEditText
@@ -66,7 +73,26 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-
+            firebaseViewModel.auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val user = firebaseViewModel.getUser()
+                        if (user != null) {
+                            user.updateProfile(userProfileChangeRequest {
+                                displayName = name
+                            }).addOnCompleteListener {
+                                Toast.makeText(this, "User successfully created", Toast.LENGTH_SHORT).show()
+                                finish()
+                            }
+                        }
+                        else {
+                            Toast.makeText(this, "Error: " + task.exception.toString(), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    else {
+                        Toast.makeText(this, "Error creating User: " + task.exception.toString(), Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
     }
 }

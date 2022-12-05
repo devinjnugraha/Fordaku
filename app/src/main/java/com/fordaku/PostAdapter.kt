@@ -38,7 +38,7 @@ class PostAdapter(private val posts: ArrayList<Post>) :
         // contents of the view with that element
         val currentItem = posts[position]
         holder.tvPostTitle.text = currentItem.title
-        holder.tvPostDate.text = currentItem.created
+        holder.tvPostDate.text = "Date"
         holder.tvPostFordaName.text = currentItem.fordaId
     }
 

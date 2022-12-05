@@ -86,10 +86,11 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/nameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="Acri"
+                    android:text="null"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -112,10 +113,11 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/locationTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="Malang"
+                    android:text="null"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -140,10 +142,11 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/emailTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="acridokb@ub.ac.id"
+                    android:text="null"
                     android:textSize="16sp" />
             </RelativeLayout>
 
