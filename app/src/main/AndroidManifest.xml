@@ -14,19 +14,8 @@
         android:theme="@style/Theme.Fordaku"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".CreatePostActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
