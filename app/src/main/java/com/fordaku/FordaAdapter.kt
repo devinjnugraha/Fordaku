@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.fordaku.model.Forda
 
 class FordaAdapter(private val fordas: ArrayList<Forda>) :
     RecyclerView.Adapter<FordaAdapter.ViewHolder>() {
@@ -35,8 +36,8 @@ class FordaAdapter(private val fordas: ArrayList<Forda>) :
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         val currentItem = fordas[position]
-        holder.tvNameForda.text = currentItem.name
-        holder.tvLocationForda.text = currentItem.location
+        holder.tvNameForda.text = currentItem.strName
+        holder.tvLocationForda.text = currentItem.strLocation
     }
 
     override fun getItemCount() = fordas.size

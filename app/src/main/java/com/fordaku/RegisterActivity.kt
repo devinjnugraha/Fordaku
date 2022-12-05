@@ -11,6 +11,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
@@ -81,7 +82,26 @@ class RegisterActivity : AppCompatActivity() {
                             user.updateProfile(userProfileChangeRequest {
                                 displayName = name
                             }).addOnCompleteListener {
-                                Toast.makeText(this, "User successfully created", Toast.LENGTH_SHORT).show()
+                                val db = FirebaseFirestore.getInstance()
+
+                                val forda = hashMapOf(
+                                    "strName" to name,
+                                    "strLocation" to location,
+                                    "strDescription" to description,
+                                    "strEmail" to email,
+                                    "intCreatedAt" to System.currentTimeMillis() / 1000,
+                                    "userId" to
+                                )
+                                db.collection("fordas")
+                                    .add(forda)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(this, "Berhasil membuat User", Toast.LENGTH_SHORT).show()
+                                        finish()
+                                    }
+                                    .addOnFailureListener {
+                                        Toast.makeText(this, "Gagal membuat post: ${it.message}", Toast.LENGTH_SHORT).show()
+                                    }
+
                                 finish()
                             }
                         }

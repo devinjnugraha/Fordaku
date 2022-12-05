@@ -14,11 +14,11 @@ import kotlinx.android.synthetic.main.recyclerview_layout2.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AllPostAdapter(
+class ProfilePostAdapter(
     private val context: Context,
     private val collection: CollectionReference,
     options: FirestoreRecyclerOptions<Posts>
-) : FirestoreRecyclerAdapter<Posts, AllPostAdapter.PostsViewHolder>(options) {
+) : FirestoreRecyclerAdapter<Posts, ProfilePostAdapter.PostsViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {
         return PostsViewHolder(

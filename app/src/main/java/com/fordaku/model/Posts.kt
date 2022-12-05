@@ -1,4 +1,4 @@
-package com.fordaku
+package com.fordaku.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

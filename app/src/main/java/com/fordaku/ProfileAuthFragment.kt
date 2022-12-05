@@ -7,28 +7,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.fordaku.bind.ProfilePostAdapter
+import com.fordaku.model.Posts
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.ktx.Firebase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "name"
-private const val ARG_PARAM2 = "email"
+private const val ARG_NAME = "name"
+private const val ARG_EMAIL = "email"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfilFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileAuthFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var name: String? = null
+    private var email: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            name = it.getString(ARG_NAME)
+            email = it.getString(ARG_EMAIL)
         }
     }
 
@@ -36,42 +39,65 @@ class ProfileAuthFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile_auth, container, false)
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfilFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileAuthFragment().apply {
+        fun newInstance(name: String, email: String) =
+            ProfileGuestFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_NAME, name)
+                    putString(ARG_EMAIL, email)
                 }
             }
     }
 
+
+
+    private lateinit var mAdapter: FirestoreRecyclerAdapter<Posts, ProfilePostAdapter.PostsViewHolder>
+    private val mFirestore = FirebaseFirestore.getInstance()
+    private val mPostsCollection = mFirestore.collection("posts")
+    private lateinit var mQuery : Query
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<TextView>(R.id.nameTextView).text = param1
-        view.findViewById<TextView>(R.id.emailTextView).text = param2
+        val user = Firebase.auth.currentUser
+        if (user != null) {
+            mQuery = mPostsCollection
+                .whereEqualTo("userId", user.uid)
+                .orderBy("intCreatedAt", Query.Direction.ASCENDING)
+        }
 
+        val rv = view.findViewById<RecyclerView>(R.id.rvProfil)
+        rv.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(activity)
+        }
+
+        val options = FirestoreRecyclerOptions.Builder<Posts>()
+            .setQuery(mQuery, Posts::class.java)
+            .build()
+
+        mAdapter = ProfilePostAdapter(requireActivity(), mPostsCollection, options)
+        mAdapter.notifyDataSetChanged()
+        rv.adapter = mAdapter
+
+        view.findViewById<TextView>(R.id.nameTextView).text = name
+        view.findViewById<TextView>(R.id.emailTextView).text = email
         view.findViewById<MaterialButton>(R.id.profilButton).setOnClickListener {
             startActivity(Intent(activity, ProfileActivity::class.java))
         }
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
+        mAdapter.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mAdapter.stopListening()
     }
 }
