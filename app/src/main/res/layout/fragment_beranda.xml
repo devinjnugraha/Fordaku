@@ -71,6 +71,7 @@
             android:id="@+id/rvBeranda"
             android:layout_width="match_parent"
             android:layout_height="541dp"
+            android:paddingHorizontal="20dp"
             tools:listitem="@layout/recyclerview_layout2" />
 
     </LinearLayout>
