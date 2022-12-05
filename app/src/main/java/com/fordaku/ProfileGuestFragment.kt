@@ -1,22 +1,28 @@
 package com.fordaku
 
+import FirebaseViewModel
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.activity.viewModels
+import com.google.android.material.button.MaterialButton
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM1 = "name"
+private const val ARG_PARAM2 = "email"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [register_1.newInstance] factory method to
+ * Use the [ProfileGuest.newInstance] factory method to
  * create an instance of this fragment.
  */
-class register_1 : Fragment() {
+class ProfileGuestFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,7 +40,7 @@ class register_1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_1, container, false)
+        return inflater.inflate(R.layout.fragment_profile_guest, container, false)
     }
 
     companion object {
@@ -44,16 +50,28 @@ class register_1 : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment register_1.
+         * @return A new instance of fragment ProfileGuest.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            register_1().apply {
+            ProfileGuestFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<MaterialButton>(R.id.registerButton).setOnClickListener {
+            startActivity(Intent(activity, RegisterActivity::class.java))
+        }
+
+        view.findViewById<TextView>(R.id.loginTextView).setOnClickListener {
+            startActivity(Intent(activity, LoginActivity::class.java))
+        }
     }
 }

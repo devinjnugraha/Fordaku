@@ -1,7 +1,9 @@
 package com.fordaku
 
+import FirebaseViewModel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.fordaku.databinding.ActivityMainBinding
 
@@ -14,11 +16,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         replaceFragment(BerandaFragment())
 
+        val beranda = BerandaFragment()
+        val forda = FordaFragment()
+        val profile = ProfileFragment()
+
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.beranda -> replaceFragment(BerandaFragment())
-                R.id.forda -> replaceFragment(FordaFragment())
-                R.id.profil -> replaceFragment(ProfilFragment())
+                R.id.beranda -> replaceFragment(beranda)
+                R.id.forda -> replaceFragment(forda)
+                R.id.profil -> replaceFragment(profile)
                 else -> {
                     println("ERROR Page not found.")
                 }
@@ -32,17 +38,5 @@ class MainActivity : AppCompatActivity() {
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, fragment)
         fragmentTransaction.commit()
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 }

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".CreatePostActivity"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
@@ -33,7 +34,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:gravity="center"
-                    android:text="Post"
+                    android:text="Login"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -55,78 +56,86 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="32dp"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView"
+            <ImageView
+                android:src="@drawable/fordaku"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Apa yang sedang Anda pikirkan?"
-                android:textSize="24sp"
-                android:textColor="@color/purple_500"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                android:layout_height="24dp"
+                android:layout_marginTop="64dp" />
+
+            <ImageView
+                android:src="@drawable/logo"
+                android:layout_width="match_parent"
+                android:layout_height="256dp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/titleTextLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Judul"
-                android:layout_marginTop="32dp"
-                app:layout_constraintTop_toBottomOf="@id/textView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:layout_marginBottom="16dp"
+                android:hint="Email">
+
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/titleTextView"
+                    android:id="@+id/emailEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:inputType="text"/>
+                    android:inputType="textEmailAddress" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Konten"
-                app:layout_constraintTop_toBottomOf="@id/titleTextLayout"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:layout_marginBottom="16dp"
+                android:hint="Password">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/contentTextView"
+                    android:id="@+id/passwordEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:textColor="@color/black"
-                    android:gravity="start"
-                    />
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/submitButton"
+                android:id="@+id/loginButton"
                 app:cornerRadius="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
-                android:text="Post"
+                android:text="Login"
                 android:textAllCaps="false"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textSize="18sp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum punya akun?"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/registerTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4sp"
+                    android:linksClickable="true"
+                    android:text="Register"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorPrimary" />
+        </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
