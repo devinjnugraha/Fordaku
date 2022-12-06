@@ -77,39 +77,27 @@ class RegisterActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val user = auth.currentUser
-                        if (user != null) {
-                            user.updateProfile(userProfileChangeRequest {
-                                displayName = name
-                            }).addOnCompleteListener {
-                                val db = FirebaseFirestore.getInstance()
+                        user?.updateProfile(userProfileChangeRequest {
+                            displayName = name
+                        })?.addOnCompleteListener {
+                            val db = FirebaseFirestore.getInstance()
 
-                                val forda = hashMapOf(
-                                    "strName" to name,
-                                    "strLocation" to location,
-                                    "strDescription" to description,
-                                    "strEmail" to email,
-                                    "intCreatedAt" to System.currentTimeMillis() / 1000,
-                                    "userId" to (user.uid)
-                                )
-                                db.collection("fordas")
-                                    .add(forda)
-                                    .addOnSuccessListener {
-                                        Toast.makeText(this, "Register berhasil!", Toast.LENGTH_SHORT).show()
-                                        finish()
-                                    }
-                                    .addOnFailureListener {
-                                        Toast.makeText(this, "Register gagal: ${it.message}", Toast.LENGTH_SHORT).show()
-                                    }
-
-                                finish()
-                            }
+                            val forda = hashMapOf(
+                                "strName" to name,
+                                "strLocation" to location,
+                                "strDescription" to description,
+                                "strEmail" to email,
+                                "intCreatedAt" to System.currentTimeMillis() / 1000,
+                            )
+                            db.collection("fordas")
+                                .document(user.uid)
+                                .set(forda)
+                            finish()
                         }
-                        else {
-                            Toast.makeText(this, "Error: " + task.exception.toString(), Toast.LENGTH_SHORT).show()
-                        }
+                        Toast.makeText(this, "Register berhasil!", Toast.LENGTH_SHORT).show()
                     }
                     else {
-                        Toast.makeText(this, "Error creating User: " + task.exception.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Register gagal: " + task.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
                 }
         }
