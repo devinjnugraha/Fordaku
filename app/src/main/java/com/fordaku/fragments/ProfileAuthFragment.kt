@@ -21,20 +21,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
 
-private const val ARG_NAME = "name"
-private const val ARG_EMAIL = "email"
-
 class ProfileAuthFragment : Fragment() {
-    private var name: String? = null
-    private var email: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            name = it.getString(ARG_NAME)
-            email = it.getString(ARG_EMAIL)
-        }
-    }
+    private lateinit var mAdapter: FirestoreRecyclerAdapter<Posts, ProfilePostAdapter.PostsViewHolder>
+    private val mFirestore = FirebaseFirestore.getInstance()
+    private val mPostsCollection = mFirestore.collection("posts")
+    private lateinit var mQuery : Query
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,24 +33,6 @@ class ProfileAuthFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_profile_auth, container, false)
     }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(name: String, email: String) =
-            ProfileGuestFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_NAME, name)
-                    putString(ARG_EMAIL, email)
-                }
-            }
-    }
-
-
-
-    private lateinit var mAdapter: FirestoreRecyclerAdapter<Posts, ProfilePostAdapter.PostsViewHolder>
-    private val mFirestore = FirebaseFirestore.getInstance()
-    private val mPostsCollection = mFirestore.collection("posts")
-    private lateinit var mQuery : Query
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -69,6 +42,9 @@ class ProfileAuthFragment : Fragment() {
             mQuery = mPostsCollection
                 .whereEqualTo("userId", user.uid)
                 .orderBy("intCreatedAt", Query.Direction.DESCENDING)
+
+            view.findViewById<TextView>(R.id.nameTextView).text = user.displayName
+            view.findViewById<TextView>(R.id.emailTextView).text = user.email
         }
 
         val rv = view.findViewById<RecyclerView>(R.id.rvProfil)
@@ -84,9 +60,6 @@ class ProfileAuthFragment : Fragment() {
         mAdapter = ProfilePostAdapter(requireActivity(), mPostsCollection, options)
         mAdapter.notifyDataSetChanged()
         rv.adapter = mAdapter
-
-        view.findViewById<TextView>(R.id.nameTextView).text = name
-        view.findViewById<TextView>(R.id.emailTextView).text = email
         view.findViewById<MaterialButton>(R.id.profilButton).setOnClickListener {
             startActivity(Intent(activity, ProfileActivity::class.java))
         }

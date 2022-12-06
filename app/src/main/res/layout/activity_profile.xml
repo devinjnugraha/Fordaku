@@ -90,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="null"
+                    android:text=""
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -117,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="Surabaya"
+                    android:text=""
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -146,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="null"
+                    android:text=""
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -164,10 +164,11 @@
                 android:layout_marginBottom="64dp">
 
                 <TextView
+                    android:id="@+id/descriptionTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:text="Forda ini adalah Forda yang berdomisili di Surabaya."
+                    android:text=""
                     android:textSize="16sp" />
             </RelativeLayout>
 
