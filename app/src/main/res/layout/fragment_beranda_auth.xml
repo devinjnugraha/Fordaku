@@ -17,14 +17,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Selamat Pagi"
+                android:text="Selamat Siang!"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Senin, 1 Desember 2022"
+                android:text="Senin, 5 Desember 2022"
                 android:textColor="#6A6868"
                 android:textStyle="bold" />
 

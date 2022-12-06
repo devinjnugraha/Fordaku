@@ -1,10 +1,13 @@
-package com.fordaku
+package com.fordaku.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.fordaku.R
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 private const val ARG_NAME = "name"
 private const val ARG_EMAIL = "email"
@@ -42,7 +45,7 @@ class ProfileFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val user = FirebaseViewModel.auth.currentUser
+        val user = Firebase.auth.currentUser
 
         var fragment: Fragment
         if (user != null) {

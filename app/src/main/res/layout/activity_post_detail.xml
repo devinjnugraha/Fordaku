@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".PostDetailFragment"
     android:orientation="vertical"
-    >
+    tools:context=".activities.PostDetailActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -42,40 +42,39 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="32dp"
+            android:layout_height="match_parent"
+            android:layout_margin="32dp"
+            android:layout_marginHorizontal="16dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jombang Bersatu (Nama Forda)"
-                android:layout_marginBottom="32dp"
-                />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/titleTextView"
                 style="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
                 android:text="Jombang Menjadi Kota yang Paling Berdesa (Judul Post)"
-                android:textSize="24dp"
-                android:layout_marginBottom="32dp"/>
+                android:textSize="24dp" />
 
             <TextView
+                android:id="@+id/dateTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="05/12/2022 (Post Created Date)"
-                android:layout_marginBottom="32dp"/>
+                android:layout_marginBottom="32dp"
+                android:text="05/12/2022 (Post Created Date)" />
 
             <TextView
+                android:id="@+id/contentTextView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jombang kota masyarakat berdesa di Kampung Pelabuhan Asap. Hal ini dipenuhi dengan perkara yang diwakilihkan oleh Menteri Pembebasan Pajak Abadi, Balthazar Warjiyo, Selasa (13/3). Berbeda dengan kabar yang diberikan dari Kuala Lumpur, di kabar tersebut jelas menyebut sejumlah sekolah menyempatkan pelabuhan pajak yang terjangkau dari Jombang. Keputusan itu akan menghasilkan peningkatan akses komoditas jombang dan mencadangkan semula lagi anggota kawasan pajak yang menyempatkan pelabuhan. Terlebih, menurut Warjiyo, ada 5 penjuru pajak itu yang menjangkau pelabuhan pajak di Jombang. Beberapa belakangan pemilik pajak maupun pengelolaan tambang kawasan pajak maupun beberapa kota. Bukan seluruh orang di Jombang mahu melakukan pajak selepas penginalan prestasi secara kecil. Berbeda dengan peningkatan akhir lagu, pemilik pajak dipaparkan ke Jombang menyempatkan pelabuhan yang terdapat sebagai pemindahan baru. Menurut pemimpin Jombang, pemimpin perdagangan Jombang Hamid Nisab menyebut pelabuhan baru selepas berdekatan pemimpin-pemimpin jombang Italia di malam 1997 yang membuka Jombang hingga atas Kelantan. Hamid terlihat menyempatkan pemimpin perdagangan Pajak Melayu di Jombang, Italia dan Suhramaniyah berkeperluan baru."
-                android:lineHeight="24dp"/>
+                android:layout_height="match_parent"
+                android:lineHeight="24dp"
+                android:text="Jombang kota masyarakat berdesa di Kampung Pelabuhan Asap. Hal ini dipenuhi dengan perkara yang diwakilihkan oleh Menteri Pembebasan Pajak Abadi, Balthazar Warjiyo, Selasa (13/3). Berbeda dengan kabar yang diberikan dari Kuala Lumpur, di kabar tersebut jelas menyebut sejumlah sekolah menyempatkan pelabuhan pajak yang terjangkau dari Jombang. Keputusan itu akan menghasilkan peningkatan akses komoditas jombang dan mencadangkan semula lagi anggota kawasan pajak yang menyempatkan pelabuhan. Terlebih, menurut Warjiyo, ada 5 penjuru pajak itu yang menjangkau pelabuhan pajak di Jombang. Beberapa belakangan pemilik pajak maupun pengelolaan tambang kawasan pajak maupun beberapa kota. Bukan seluruh orang di Jombang mahu melakukan pajak selepas penginalan prestasi secara kecil. Berbeda dengan peningkatan akhir lagu, pemilik pajak dipaparkan ke Jombang menyempatkan pelabuhan yang terdapat sebagai pemindahan baru. Menurut pemimpin Jombang, pemimpin perdagangan Jombang Hamid Nisab." />
         </LinearLayout>
     </ScrollView>
 

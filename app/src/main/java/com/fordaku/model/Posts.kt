@@ -8,5 +8,5 @@ data class Posts(
     val strTitle: String = "",
     val strContent: String = "",
     val intCreatedAt: Int = 0,
-    val userID: String = "",
+    val userId: String = "",
 ):Parcelable
