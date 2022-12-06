@@ -1,22 +1,16 @@
 package com.fordaku.bind
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.fordaku.model.Posts
 import com.fordaku.R
 import com.fordaku.model.Forda
 import com.google.firebase.firestore.CollectionReference
-import kotlinx.android.synthetic.main.recyclerview_layout.view.*
-import kotlinx.android.synthetic.main.recyclerview_layout2.view.*
-import java.text.SimpleDateFormat
-import java.util.*
+import kotlinx.android.synthetic.main.recyclerview_forda_layout.view.*
 
 class FordaAdapter(
     private val context: Context,
@@ -27,7 +21,7 @@ class FordaAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FordaViewHolder {
         return FordaViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.recyclerview_layout, parent, false)
+                .inflate(R.layout.recyclerview_forda_layout, parent, false)
         )
     }
 

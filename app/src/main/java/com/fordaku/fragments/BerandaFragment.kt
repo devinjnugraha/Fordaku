@@ -6,13 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.fordaku.R
 import com.fordaku.activities.CreatePostActivity
-import com.fordaku.bind.AllPostAdapter
+import com.fordaku.bind.PostAdapter
 import com.fordaku.model.Posts
 import com.fordaku.utils.LinearLayoutManagerWrapper
 import com.google.android.material.button.MaterialButton
@@ -22,7 +21,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
 
 class BerandaFragment : Fragment() {
-    private lateinit var mAdapter: FirestoreRecyclerAdapter<Posts, AllPostAdapter.PostsViewHolder>
+    private lateinit var mAdapter: FirestoreRecyclerAdapter<Posts, PostAdapter.PostsViewHolder>
     private val mFirestore = FirebaseFirestore.getInstance()
     private val mPostsCollection = mFirestore.collection("posts")
     private val mQuery = mPostsCollection.orderBy("intCreatedAt", Query.Direction.DESCENDING)
@@ -40,14 +39,14 @@ class BerandaFragment : Fragment() {
         val rv = view.findViewById<RecyclerView>(R.id.rvBeranda)
         rv.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManagerWrapper(activity, LinearLayoutManager.VERTICAL, false)
+            layoutManager = LinearLayoutManagerWrapper(activity)
         }
 
         val options = FirestoreRecyclerOptions.Builder<Posts>()
             .setQuery(mQuery, Posts::class.java)
             .build()
 
-        mAdapter = AllPostAdapter(requireActivity(), mPostsCollection, options)
+        mAdapter = PostAdapter(requireActivity(), mPostsCollection, options)
         mAdapter.notifyDataSetChanged()
         rv.adapter = mAdapter
 
