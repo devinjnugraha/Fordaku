@@ -1,15 +1,15 @@
-package com.fordaku
+package com.fordaku.fragments
 
-import FirebaseViewModel
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
-import androidx.activity.viewModels
+import com.fordaku.R
+import com.fordaku.activities.LoginActivity
+import com.fordaku.activities.RegisterActivity
 import com.google.android.material.button.MaterialButton
 
 // TODO: Rename parameter arguments, choose names that match

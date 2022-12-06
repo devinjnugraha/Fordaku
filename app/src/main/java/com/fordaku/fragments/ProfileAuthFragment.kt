@@ -1,4 +1,4 @@
-package com.fordaku
+package com.fordaku.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.fordaku.R
+import com.fordaku.activities.ProfileActivity
 import com.fordaku.bind.ProfilePostAdapter
 import com.fordaku.model.Posts
 import com.google.android.material.button.MaterialButton
@@ -67,7 +68,7 @@ class ProfileAuthFragment : Fragment() {
         if (user != null) {
             mQuery = mPostsCollection
                 .whereEqualTo("userId", user.uid)
-                .orderBy("intCreatedAt", Query.Direction.ASCENDING)
+                .orderBy("intCreatedAt", Query.Direction.DESCENDING)
         }
 
         val rv = view.findViewById<RecyclerView>(R.id.rvProfil)

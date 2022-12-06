@@ -1,11 +1,12 @@
 package com.fordaku
 
-import FirebaseViewModel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.fordaku.databinding.ActivityMainBinding
+import com.fordaku.fragments.BerandaFragment
+import com.fordaku.fragments.FordaFragment
+import com.fordaku.fragments.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding

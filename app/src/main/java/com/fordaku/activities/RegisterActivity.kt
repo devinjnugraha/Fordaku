@@ -1,12 +1,11 @@
-package com.fordaku
+package com.fordaku.activities
 
-import FirebaseViewModel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.viewModels
+import com.fordaku.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.ktx.auth
@@ -15,7 +14,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
-    private val firebaseViewModel: FirebaseViewModel by viewModels()
     private lateinit var nameEditText: TextInputEditText
     private lateinit var locationEditText: TextInputEditText
     private lateinit var descriptionEditText: TextInputEditText
@@ -74,10 +72,11 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            firebaseViewModel.auth.createUserWithEmailAndPassword(email, password)
+            val auth = Firebase.auth
+            auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        val user = firebaseViewModel.getUser()
+                        val user = auth.currentUser
                         if (user != null) {
                             user.updateProfile(userProfileChangeRequest {
                                 displayName = name
@@ -95,11 +94,11 @@ class RegisterActivity : AppCompatActivity() {
                                 db.collection("fordas")
                                     .add(forda)
                                     .addOnSuccessListener {
-                                        Toast.makeText(this, "Berhasil membuat User", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(this, "Register berhasil!", Toast.LENGTH_SHORT).show()
                                         finish()
                                     }
                                     .addOnFailureListener {
-                                        Toast.makeText(this, "Gagal membuat post: ${it.message}", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(this, "Register gagal: ${it.message}", Toast.LENGTH_SHORT).show()
                                     }
 
                                 finish()

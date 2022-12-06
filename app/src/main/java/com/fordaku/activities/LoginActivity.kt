@@ -1,6 +1,5 @@
-package com.fordaku
+package com.fordaku.activities
 
-import FirebaseViewModel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,12 +7,13 @@ import android.util.Patterns
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.viewModels
+import com.fordaku.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
-    private val firebaseViewModel: FirebaseViewModel by viewModels()
     private lateinit var emailEditText: TextInputEditText
     private lateinit var passwordEditText: TextInputEditText
     private lateinit var loginButton: MaterialButton
@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            firebaseViewModel.auth.signInWithEmailAndPassword(email, password)
+            Firebase.auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Login sukses!", Toast.LENGTH_SHORT).show()

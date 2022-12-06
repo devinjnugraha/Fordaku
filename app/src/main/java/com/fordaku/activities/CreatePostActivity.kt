@@ -1,18 +1,17 @@
-package com.fordaku
+package com.fordaku.activities
 
-import FirebaseViewModel
-import FirebaseViewModel.Companion.auth
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.fordaku.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import com.google.firebase.ktx.Firebase
 
 class CreatePostActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
@@ -24,7 +23,7 @@ class CreatePostActivity : AppCompatActivity() {
             val title = findViewById<TextInputEditText>(R.id.titleTextView).text.toString()
             val content = findViewById<TextInputEditText>(R.id.contentTextView).text.toString()
 
-            val user = auth.currentUser
+            val user = Firebase.auth.currentUser
             if (user != null) {
                 val db = FirebaseFirestore.getInstance()
 

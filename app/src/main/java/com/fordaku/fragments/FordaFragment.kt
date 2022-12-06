@@ -1,4 +1,4 @@
-package com.fordaku
+package com.fordaku.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.fordaku.R
 import com.fordaku.bind.FordaAdapter
 import com.fordaku.model.Forda
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,7 +19,7 @@ class FordaFragment : Fragment() {
     private lateinit var mAdapter: FirestoreRecyclerAdapter<Forda, FordaAdapter.FordaViewHolder>
     private val mFirestore = FirebaseFirestore.getInstance()
     private val mPostsCollection = mFirestore.collection("fordas")
-    private val mQuery = mPostsCollection.orderBy("intCreatedAt", Query.Direction.ASCENDING)
+    private val mQuery = mPostsCollection.orderBy("intCreatedAt", Query.Direction.DESCENDING)
 
 
     override fun onCreateView(

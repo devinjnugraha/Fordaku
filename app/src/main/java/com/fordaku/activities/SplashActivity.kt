@@ -1,9 +1,11 @@
-package com.fordaku
+package com.fordaku.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.fordaku.MainActivity
+import com.fordaku.R
 
 class SplashActivity : AppCompatActivity() {
     //Deklarasi variabel timer Splash Screen muncul
@@ -15,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
 
         //Kode untuk menjalankan main screen timer splash screen habis
         Handler().postDelayed({
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }, SPLASH_TIME_OUT)
     }
