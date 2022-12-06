@@ -1,48 +1,54 @@
 package com.fordaku.bind
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.fordaku.R
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.fordaku.activities.PostDetailActivity
 import com.fordaku.model.Posts
+import com.fordaku.R
+import com.google.firebase.firestore.CollectionReference
+import kotlinx.android.synthetic.main.recyclerview_post_layout.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
-class PostAdapter(private val posts: ArrayList<Posts>) :
-    RecyclerView.Adapter<PostAdapter.ViewHolder>() {
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvPostTitle: TextView
-        val tvPostDate: TextView
-        val tvPostFordaName: TextView
-        init {
-            // Define click listener for the ViewHolder's View.
-            tvPostTitle = view.findViewById(R.id.tvPostTitle)
-            tvPostDate = view.findViewById(R.id.tvPostDate)
-            tvPostFordaName = view.findViewById(R.id.tvPostFordaName)
+class PostAdapter(
+    private val context: Context,
+    private val collection: CollectionReference,
+    options: FirestoreRecyclerOptions<Posts>
+) : FirestoreRecyclerAdapter<Posts, PostAdapter.PostsViewHolder>(options) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {
+        return PostsViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.recyclerview_post_layout, parent, false)
+        )
+    }
+
+    override fun onBindViewHolder(viewHolder: PostsViewHolder, position: Int, posts: Posts) {
+        viewHolder.bindItem(posts)
+    }
+
+    class PostsViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+
+        fun bindItem(posts: Posts) {
+            view.apply {
+                val date = SimpleDateFormat("dd MMMM yyyy, hh:mm").format(Date(posts.intCreatedAt.toLong() * 1000))
+                tvPostTitle.text = posts.strTitle
+                tvPostDate.text = date
+                tvPostFordaName.text = "Forda"
+                setOnClickListener {
+                    val intent = Intent(view.context, PostDetailActivity::class.java)
+                    intent.putExtra("title", posts.strTitle)
+                    intent.putExtra("content", posts.strContent)
+                    intent.putExtra("date", date)
+                    view.context.startActivity(intent)
+                }
+            }
         }
     }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // Create a new view, which defines the UI of the list item
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recyclerview_layout2, parent, false)
-
-        return ViewHolder(view)
-    }
-
-    // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
-        val currentItem = posts[position]
-        holder.tvPostTitle.text = currentItem.strTitle
-        holder.tvPostDate.text = "Date"
-        holder.tvPostFordaName.text = "Acr"
-    }
-
-    override fun getItemCount() = posts.size
 }

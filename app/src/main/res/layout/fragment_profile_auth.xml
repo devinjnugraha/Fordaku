@@ -81,7 +81,7 @@
         android:id="@+id/rvProfil"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/recyclerview_layout2" />
+        tools:listitem="@layout/recyclerview_post_layout" />
 
 
 </LinearLayout>

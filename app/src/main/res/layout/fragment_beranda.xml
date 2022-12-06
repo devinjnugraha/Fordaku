@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Senin, 6 Desember 2022"
+            android:text="Selasa, 6 Desember 2022"
             android:textColor="#6A6868"
             android:textStyle="bold" />
 
@@ -67,6 +67,6 @@
         android:id="@+id/rvBeranda"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/recyclerview_layout2" />
+        tools:listitem="@layout/recyclerview_post_layout" />
 
 </LinearLayout>

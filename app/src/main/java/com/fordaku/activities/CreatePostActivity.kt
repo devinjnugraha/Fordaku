@@ -34,7 +34,8 @@ class CreatePostActivity : AppCompatActivity() {
                     "userId" to (user.uid)
                 )
                 db.collection("posts")
-                    .add(post)
+                    .document(user.uid)
+                    .set(post)
                     .addOnSuccessListener {
                         Toast.makeText(this, "Berhasil membuat post", Toast.LENGTH_SHORT).show()
                         finish()

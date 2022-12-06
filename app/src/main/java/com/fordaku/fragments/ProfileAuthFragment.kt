@@ -7,14 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.fordaku.R
 import com.fordaku.activities.ProfileActivity
-import com.fordaku.bind.ProfilePostAdapter
+import com.fordaku.bind.PostAdapter
 import com.fordaku.model.Posts
+import com.fordaku.utils.LinearLayoutManagerWrapper
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -22,7 +22,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
 
 class ProfileAuthFragment : Fragment() {
-    private lateinit var mAdapter: FirestoreRecyclerAdapter<Posts, ProfilePostAdapter.PostsViewHolder>
+    private lateinit var mAdapter: FirestoreRecyclerAdapter<Posts, PostAdapter.PostsViewHolder>
     private val mFirestore = FirebaseFirestore.getInstance()
     private val mPostsCollection = mFirestore.collection("posts")
     private lateinit var mQuery : Query
@@ -50,14 +50,14 @@ class ProfileAuthFragment : Fragment() {
         val rv = view.findViewById<RecyclerView>(R.id.rvProfil)
         rv.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(activity)
+            layoutManager = LinearLayoutManagerWrapper(activity)
         }
 
         val options = FirestoreRecyclerOptions.Builder<Posts>()
             .setQuery(mQuery, Posts::class.java)
             .build()
 
-        mAdapter = ProfilePostAdapter(requireActivity(), mPostsCollection, options)
+        mAdapter = PostAdapter(requireActivity(), mPostsCollection, options)
         mAdapter.notifyDataSetChanged()
         rv.adapter = mAdapter
         view.findViewById<MaterialButton>(R.id.profilButton).setOnClickListener {
